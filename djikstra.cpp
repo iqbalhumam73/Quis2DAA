@@ -2,6 +2,24 @@
 using namespace std;
 #define m 5
 
+int mindist(int dist[], bool included[]) {
+    int minimum = INT_MAX, minimum_index;
+
+    for (int i = 0; i < m; i++) {
+        if (!included[i] && dist[i] <= minimum)
+            minimum = dist[i], minimum_index = i;
+
+    }
+    return minimum_index;
+}
+
+void printroute (int dist[]){
+    cout << "Answer: " << endl;
+    cout << "Start: Distance from source" << endl;
+    for (int j=0; j<m; j++) {
+        cout << j << ": " << dist[j] << endl;
+    }
+}
 
 void routefinder(int startingpoint, int map[m][m]) {
     int dist[m];
